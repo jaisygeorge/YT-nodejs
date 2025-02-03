@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 3000;
 
 // connect to dB
 mongoose
-    .connect(process.env.MONGO_URL)
+    .connect(process.env.MONGO_URL, 
+        {socketTimeoutMS: 45000}
+    )
     .then(() => console.log("MongoDB connected successfully"))
     .catch((e) => console.log("MongoDB connection failed:", e));
 
